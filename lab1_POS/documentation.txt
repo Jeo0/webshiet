@@ -1,0 +1,20 @@
+# arch linux environment
+need to install the following for the system:
+  - mycli (AUR)
+  - mysql (AUR)
+
+  - PHP (pacman)
+
+
+requirements need a database, and a php. Also needs apache for that. 
+the needed setup configuration we need to do first are:
+  1. setting up xampp for linux
+
+  2. setting up php for linux:
+
+  https://www.php.net/manual/en/tutorial.requirements.php  
+
+  2. setting up mysql for arch linux
+  https://dev.mysql.com/doc/mysql-getting-started/en/
+
+
