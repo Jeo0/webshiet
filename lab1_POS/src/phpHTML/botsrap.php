@@ -32,8 +32,7 @@
 
   <body>
     <div class="container">
-      <h1>Backlang Sari Store</h1>
-      <p>helyea</p>
+      <h1>Backlang Iba-Iba Store</h1>
       
       <!-- show images using grid -->
 
@@ -41,7 +40,7 @@
       <div class="row">
         <div class="col"> <img src="../../assets/CHARACTERS/Sucrose_Card.webp" 
                               alt="SUCROSE" 
-                              title="SUCR" 
+                              title="titleSUCR" 
                               class="character_card"
 
                               data-toggle="tooltip" 
@@ -51,6 +50,46 @@
       </div>
     
 
+<?php
+    $directory = '../../assets/CHARACTERS/';
+    $filesAndDirs = array_diff(scandir($directory), array('.', '..'));
+    /*
+     * print_r($filesAndDirs);
+    var_dump($filesAndDirs);
+
+    for($ii = 0; $ii < 3; $ii++)
+      echo "<br>";
+
+    $iii = 0;
+    foreach ($filesAndDirs as $FILES){
+      echo "[$iii]: $FILES <br>";
+      $iii++;
+    }
+     */
+
+    $intended_columns = 4;
+    $ii_current_arr = 0;
+
+    foreach($filesAndDirs as $e_cards_name){
+      $alt = pathinfo($e_cards_name, PATHINFO_FILENAME);
+
+      // only create a new row if abot 4 columns
+      if($ii_current_arr % $intended_columns == 0) echo "<div class=\"row\">";
+        
+        echo "<div class=\"col\">";
+          echo "<img src=" . $directory . "$e_cards_name " 
+            . "class=\"character_card\" "
+            . "data-toggle=\"tooltip\" "
+            . "data-placement=\"bottom\" "
+            . "alt=\"$alt\" >";
+
+          echo "<div>" . $alt. "</div>"; // label under image
+        echo "</div>";
+        $ii_current_arr++;
+
+      if($ii_current_arr % $intended_columns == 0) echo "</div>";
+    }
+?>
 
     </div>
 
