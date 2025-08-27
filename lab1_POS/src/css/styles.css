@@ -1,0 +1,17 @@
+.character_card {
+  width: 170px;
+  height: 180px;
+  margin-top: 30px;
+  margin-bottom: 30px;
+  border: 10px solid white;
+  overflow: hidden;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.5);
+  border-radius: 8px; /* optional: makes it look smoother */
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.character_card:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.8);
+  cursor: pointer;
+}
