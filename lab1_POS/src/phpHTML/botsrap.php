@@ -31,23 +31,11 @@
   </head>
 
   <body>
-    <div class="container">
+    <div class="container-fluid mt-1">
       <h1>Backlang Iba-Iba Store</h1>
       
       <!-- show images using grid -->
 
-    
-      <div class="row">
-        <div class="col"> <img src="../../assets/CHARACTERS/Sucrose_Card.webp" 
-                              alt="SUCROSE" 
-                              title="titleSUCR" 
-                              class="character_card"
-
-                              data-toggle="tooltip" 
-                              data-placement="bottom" 
-                              >
-                            </div>
-      </div>
     
 
 <?php
@@ -92,6 +80,8 @@
 ?>
 
     </div>
+
+
 
     <script>
       $(document).ready(function(){

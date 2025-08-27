@@ -19,7 +19,7 @@ the needed setup configuration we need to do first are:
 
 
 creating the assignment:
-  1. needed to review how bootstrap works (im not sure how to setup bootstrap)
+  1. need to know how bootstrap works (im not sure how to setup bootstrap)
   proceeded to go to https://getbootstrap.com/docs/5.3/examples/ 
   and https://www.w3schools.com/bootstrap5/bootstrap_get_started.php
   and https://getbootstrap.com/docs/5.0/getting-started/introduction/
@@ -27,5 +27,6 @@ creating the assignment:
   - looked how bootstrap is used on the examples on the official bootstrap website and copied the style
 
   2. given the requirement to have an array of 20 images. I never want to manage those 20 hard coded contents my prof want us to create.
-  i want to automate or make a scalable version. I used php for that thank god. 
+  i want to automate or make a scalable version. I used php for that thank god.
+
 
