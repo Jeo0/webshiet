@@ -29,4 +29,8 @@ creating the assignment:
   2. given the requirement to have an array of 20 images. I never want to manage those 20 hard coded contents my prof want us to create.
   i want to automate or make a scalable version. I used php for that thank god.
 
+  3. discovered cards component for bootstrap. I dabbled whether to use it or just use the solution I have on number2
+  everything in bootstrap's documentation is also particularly useful (https://getbootstrap.com/docs/5.0/components/card/)
+
+
 

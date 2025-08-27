@@ -1,7 +1,8 @@
+<?php 
+$g_root_folder = "../../";
+?>
 <!DOCTYPE html>
-<html lang="en">
-  <head>
-    <title>Sample 101</title>
+<html lang="en"> <head> <title>Sample 101</title>
     <meta charset="UTF-8">
 
 
@@ -36,10 +37,9 @@
       
       <!-- show images using grid -->
 
-    
 
 <?php
-    $directory = '../../assets/CHARACTERS/';
+    $directory = "$g_root_folder" . "assets/CHARACTERS/";
     $filesAndDirs = array_diff(scandir($directory), array('.', '..'));
     /*
      * print_r($filesAndDirs);
@@ -79,6 +79,23 @@
     }
 ?>
 
+          <div class="card mb-3" style="max-width: 540px;">
+            <div class="row g-0">
+
+              <div class="col-md-4">
+              <img src="<?php echo "$g_root_folder" . "assets/CHARACTERS/Sucrose_Card.webp"; ?>" class="img-fluid rounded-start" alt="...">
+              </div>
+
+              <div class="col-md-8">
+                <div class="card-body">
+                  <h5 class="card-title">Card title</h5>
+                  <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+                  <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+                  <a href="#" class="btn btn-primary">Go somewhere</a>
+                </div>
+              </div>
+            </div>
+          </div>
     </div>
 
 
