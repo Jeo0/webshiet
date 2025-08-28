@@ -1,5 +1,5 @@
 <?php 
-$g_root_folder = "../../";
+$g_root_location = "../../";
 ?>
 <!DOCTYPE html>
 <html lang="en"> <head> <title>Sample 101</title>
@@ -39,7 +39,7 @@ $g_root_folder = "../../";
 
 
 <?php
-    $directory = "$g_root_folder" . "assets/CHARACTERS/";
+    $directory = "$g_root_location" . "assets/CHARACTERS/";
     $filesAndDirs = array_diff(scandir($directory), array('.', '..'));
     /*
      * print_r($filesAndDirs);
@@ -83,7 +83,7 @@ $g_root_folder = "../../";
             <div class="row g-0">
 
               <div class="col-md-4">
-              <img src="<?php echo "$g_root_folder" . "assets/CHARACTERS/Sucrose_Card.webp"; ?>" class="img-fluid rounded-start" alt="...">
+              <img src="<?php echo "$g_root_location" . "assets/CHARACTERS/Sucrose_Card.webp"; ?>" class="img-fluid rounded-start" alt="...">
               </div>
 
               <div class="col-md-8">
@@ -96,6 +96,59 @@ $g_root_folder = "../../";
               </div>
             </div>
           </div>
+
+          <!------ collei --------->
+          <div class="row">
+
+            <div class="col">
+              <div class="card">
+                <img src="<?php echo "$g_root_location" . "assets/CHARACTERS/Collei_Card.webp"; ?>" class="card-img-top" alt="...">
+                <div class="card-body">
+                  <h5 class="card-title">Card title</h5>
+                  <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+                  <a href="#" class="btn btn-primary">Go somewhere</a>
+                </div>
+              </div>
+            </div>
+
+            <div class="col">
+              <div class="card">
+                <img src="<?php echo "$g_root_location" . "assets/CHARACTERS/Collei_Card.webp"; ?>" class="card-img-top" alt="...">
+                <div class="card-body">
+                  <h5 class="card-title">Card title</h5>
+                  <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+                  <a href="#" class="btn btn-primary">Go somewhere</a>
+                </div>
+              </div>
+            </div>
+
+            <div class="col">
+              <div class="card">
+                <img src="<?php echo "$g_root_location" . "assets/CHARACTERS/Collei_Card.webp"; ?>" class="card-img-top" alt="...">
+                <div class="card-body">
+                  <h5 class="card-title">Card title</h5>
+                  <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+                  <a href="#" class="btn btn-primary">Go somewhere</a>
+                </div>
+              </div>
+            </div>
+
+            <div class="col">
+              <div class="card">
+                <img src="<?php echo "$g_root_location" . "assets/CHARACTERS/Collei_Card.webp"; ?>" class="card-img-top" alt="...">
+                <div class="card-body">
+                  <h5 class="card-title">Card title</h5>
+                  <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+                  <a href="#" class="btn btn-primary">Go somewhere</a>
+                </div>
+              </div>
+            </div>
+
+          </div>
+          
+
+
+
     </div>
 
 
