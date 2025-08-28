@@ -40,7 +40,7 @@ $g_root_location = "../../";
 
 <?php
 
-    $directory = "$g_root_location" . "assets/CPUS/";
+    $directory = "$g_root_location" . "assets/CHARACTERS/";
     $filesAndDirs = array_diff(scandir($directory), array('.', '..'));
     /*
      * print_r($filesAndDirs);
