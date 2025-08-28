@@ -1,6 +1,7 @@
 <?php 
 $g_root_location = "../../";
 ?>
+
 <!DOCTYPE html>
 <html lang="en"> <head> <title>Sample 101</title>
     <meta charset="UTF-8">
@@ -35,10 +36,13 @@ $g_root_location = "../../";
     <div class="container-fluid mt-1">
       <h1>Backlang Iba-Iba Store</h1>
       
-      <!-- show images using grid -->
+      <!-- show images using grid of cards-->
+
+
 
 
 <?php
+
     $directory = "$g_root_location" . "assets/CHARACTERS/";
     $filesAndDirs = array_diff(scandir($directory), array('.', '..'));
     /*
@@ -63,89 +67,37 @@ $g_root_location = "../../";
 
       // only create a new row if abot 4 columns
       if($ii_current_arr % $intended_columns == 0) echo "<div class=\"row\">";
-        
-        echo "<div class=\"col\">";
-          echo "<img src=" . $directory . "$e_cards_name " 
-            . "class=\"character_card\" "
-            . "data-toggle=\"tooltip\" "
-            . "data-placement=\"bottom\" "
-            . "alt=\"$alt\" >";
 
-          echo "<div>" . $alt. "</div>"; // label under image
+        echo "<div class=\"col\">";
+          echo "<div class=\"card\">";
+
+            // card proper
+            echo "<img src=" . "$directory" . "$e_cards_name "
+              . "class=\"card-img-top\" "
+              . "data-toggle=\"tooltip\" "
+              . "data-placement=\"bottom\" "
+              . "alt=\"$alt\" >";
+            
+            // contents of the pic (below)
+            echo "<div class=\"card-body\">";
+
+              echo "<h5 class=\"card-title\">" . $alt . "</h5>";
+              echo "<p class=\"card-text\">" . "P" . rand(10,10000) . "</p>";
+              echo "<a href=\"#\" class=\"btn btn-primary\">" . "Go somewhere" . "</a>";
+            
+            echo "</div>";
+
+
+          echo "</div>";
         echo "</div>";
         $ii_current_arr++;
 
       if($ii_current_arr % $intended_columns == 0) echo "</div>";
     }
-?>
+      
 
-          <div class="card mb-3" style="max-width: 540px;">
-            <div class="row g-0">
-
-              <div class="col-md-4">
-              <img src="<?php echo "$g_root_location" . "assets/CHARACTERS/Sucrose_Card.webp"; ?>" class="img-fluid rounded-start" alt="...">
-              </div>
-
-              <div class="col-md-8">
-                <div class="card-body">
-                  <h5 class="card-title">Card title</h5>
-                  <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-                  <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
-                  <a href="#" class="btn btn-primary">Go somewhere</a>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <!------ collei --------->
-          <div class="row">
-
-            <div class="col">
-              <div class="card">
-                <img src="<?php echo "$g_root_location" . "assets/CHARACTERS/Collei_Card.webp"; ?>" class="card-img-top" alt="...">
-                <div class="card-body">
-                  <h5 class="card-title">Card title</h5>
-                  <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-                  <a href="#" class="btn btn-primary">Go somewhere</a>
-                </div>
-              </div>
-            </div>
-
-            <div class="col">
-              <div class="card">
-                <img src="<?php echo "$g_root_location" . "assets/CHARACTERS/Collei_Card.webp"; ?>" class="card-img-top" alt="...">
-                <div class="card-body">
-                  <h5 class="card-title">Card title</h5>
-                  <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-                  <a href="#" class="btn btn-primary">Go somewhere</a>
-                </div>
-              </div>
-            </div>
-
-            <div class="col">
-              <div class="card">
-                <img src="<?php echo "$g_root_location" . "assets/CHARACTERS/Collei_Card.webp"; ?>" class="card-img-top" alt="...">
-                <div class="card-body">
-                  <h5 class="card-title">Card title</h5>
-                  <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-                  <a href="#" class="btn btn-primary">Go somewhere</a>
-                </div>
-              </div>
-            </div>
-
-            <div class="col">
-              <div class="card">
-                <img src="<?php echo "$g_root_location" . "assets/CHARACTERS/Collei_Card.webp"; ?>" class="card-img-top" alt="...">
-                <div class="card-body">
-                  <h5 class="card-title">Card title</h5>
-                  <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-                  <a href="#" class="btn btn-primary">Go somewhere</a>
-                </div>
-              </div>
-            </div>
-
-          </div>
           
+?>
 
 
 
