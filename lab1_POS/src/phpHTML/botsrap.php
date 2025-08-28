@@ -32,8 +32,8 @@ $g_root_location = "../../";
 
   </head>
 
-  <body>
-    <div class="container-fluid my-5">
+  <body class="py-5">
+    <div class="container">
       <h1>Backlang Iba-Iba Store</h1>
       
       <!-- show images using grid of cards-->
@@ -71,7 +71,7 @@ $g_root_location = "../../";
 
             // card proper
             echo "<img src=\"$directory$e_cards_name\" "
-              . "class=\"card-img-top\" "
+              . "class=\"card-img-top\" cardIMAGE"
               . "data-toggle=\"tooltip\" "
               . "data-placement=\"bottom\" "
               . "alt=\"$e_cards_name\" >";
