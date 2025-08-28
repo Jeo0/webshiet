@@ -28,22 +28,19 @@ $g_root_location = "../../";
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
 
     <!-- custom styles (relative path) -->
-    <link rel="stylesheet" href="../css/styles.css">
+      <link rel="stylesheet" href="<?php echo "$g_root_location" . "src/css/styles.css"; ?>" >
 
   </head>
 
   <body>
-    <div class="container-fluid mt-1">
+    <div class="container-fluid my-5">
       <h1>Backlang Iba-Iba Store</h1>
       
       <!-- show images using grid of cards-->
 
-
-
-
 <?php
 
-    $directory = "$g_root_location" . "assets/CHARACTERS/";
+    $directory = "$g_root_location" . "assets/CPUS/";
     $filesAndDirs = array_diff(scandir($directory), array('.', '..'));
     /*
      * print_r($filesAndDirs);
@@ -69,27 +66,29 @@ $g_root_location = "../../";
       if($ii_current_arr % $intended_columns == 0) echo "<div class=\"row\">";
 
         echo "<div class=\"col\">";
-          echo "<div class=\"card\">";
+          echo "<div class=\"card character_card\">";
+            // for overriding the bootstrap with css
 
             // card proper
-            echo "<img src=" . "$directory" . "$e_cards_name "
+            echo "<img src=\"$directory$e_cards_name\" "
               . "class=\"card-img-top\" "
               . "data-toggle=\"tooltip\" "
               . "data-placement=\"bottom\" "
-              . "alt=\"$alt\" >";
+              . "alt=\"$e_cards_name\" >";
             
             // contents of the pic (below)
             echo "<div class=\"card-body\">";
 
-              echo "<h5 class=\"card-title\">" . $alt . "</h5>";
-              echo "<p class=\"card-text\">" . "P" . rand(10,10000) . "</p>";
-              echo "<a href=\"#\" class=\"btn btn-primary\">" . "Go somewhere" . "</a>";
+              echo "<h5 class=\"card-title\">" . $alt . "</h5>";                
+              echo "<p class=\"card-text\">" . "P" . rand(10,10000) . "</p>";   // random for now, connect to database later
+              // echo "<a href=\"#\" class=\"btn btn-primary\">" . "Werelse" . "</a>";     // optional button
             
             echo "</div>";
 
 
-          echo "</div>";
-        echo "</div>";
+
+          echo "</div>";    // card
+        echo "</div>";      // col
         $ii_current_arr++;
 
       if($ii_current_arr % $intended_columns == 0) echo "</div>";
