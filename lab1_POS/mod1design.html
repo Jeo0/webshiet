@@ -4,6 +4,8 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+
     <!-- Latest compiled and minified CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <!-- jQuery library -->
@@ -12,24 +14,26 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
     <!-- Latest compiled JavaScript -->
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-    <title>Sample 101</title>
+    <title>Shop</title>
+
   </head>
   <body>
 
-    <div class="container">
-    <h1 style="text-align:center; margin-top:10px; font-size:70px; font-family:Algerian; color:black">Se-Ri`s Point of Sale</h1>
-      <div style="float:left">
 
-        <div> <img src="assets/CHARACTERS/Raiden_Shogun_Card.webp" data-toggle="tooltip" data-placement="bottom" title="RAI" width="170" height="180" alt="Raiden Shogun" style="margin-top:30px; border:10px solid white; overflow:hidden; box-shadow: 0 0 5px; margin-bottom:30px "> </div>
-        <div> <img src="assets/CHARACTERS/Sucrose_Card.webp" data-toggle="tooltip" data-11placement="bottom" title="SUCR" alt="Sucrose" width="170" height="180" style="margin-top:30px; border:10px solid white; overflow:hidden; box-shadow: 0 0 5px; margin-bottom:30px "> </div> </div>
+  <div class="justify-content-center text-center">
+      <h1 class="shope-name" style="font-family: Algerian;">Se-Ri`s Point of Sale</h1>  <!--title of the webpage-->
+  </div>
 
+  <div class="container">
+    <div class="row">
+      <div class="m-3 d-flex justify-content-center">
+        <img class="product-imgs" src="assets/CHARACTERS/Raiden_Shogun_Card.webp" data-toggle="tooltip" data-placement="bottom" title="RAI" alt="Raiden Shogun"> 
+        <img class="product-imgs" src="assets/CHARACTERS/Sucrose_Card.webp" data-toggle="tooltip" data-placement="bottom" title="SUCR" alt="Sucrose"> 
+      </div>
     </div>
+  </div>
 
-    <script>
-      $(document).ready(function(){
-      $('[data-toggle="tooltip"]').tooltip();
-      });
-    </script>
+    <script src="main.js"></script> <!--linking the main.js file-->
 
     </body>
 </html>
