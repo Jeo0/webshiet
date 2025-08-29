@@ -1,7 +1,7 @@
 <?php 
 $g_root_location = "../../";
 $g_asset_options = ["CHARACTERS", "CPUS", "GAMES", "GPUS", "MOTHERBOARDS"];
-$g_current_asset = $g_asset_options[0];
+$g_current_asset = $g_asset_options[1];
 ?>
 
 <!DOCTYPE html>
@@ -33,9 +33,7 @@ $g_current_asset = $g_asset_options[0];
       <link rel="stylesheet" href="<?php echo "$g_root_location" . "src/css/styles.css"; ?>" >
       
     <!-- webpage selector -->
-    <!--
-    <script src="<?php //echo "$g_root_location" . "src/js/selector.js"; ?>"></script>
-    -->
+    <script src="<?php echo "$g_root_location" . "src/js/selector.js"; ?>"></script>
 
   </head>
 
@@ -48,12 +46,21 @@ $g_current_asset = $g_asset_options[0];
         <button id="search" type="submit" name="search_btn" class="btn btn-danger" style="padding:5px; margin-bottom:5px; margin-left:40px; width:130px">SEARCH</button>
         <select id="product_option" name="product_option" style="width:250px; height:36px; padding:5px">
           <option value="pos1_page_new.php">---------------select product</option>
-          <option value="../../src/phpHTML/cpus.php">CPUS</option>
+          <option value="pos1_page_new.php">Delicious Cakes</option>
           <option value="pos2_page_new.php">So Bango Perfumes</option>
         </select>
       </div>
 
-
+<script>
+$("select").click(function() {
+  var open = $(this).data("isopen");
+  if(open) {
+    window.location.href = $(this).val()
+  }
+  //set isopen to opposite so next time when use clicked select box
+  //it wont trigger this event
+  $(this).data("isopen", !open);
+</script>
       <!-- show images using grid of cards-->
 
 <?php
@@ -127,17 +134,6 @@ $g_current_asset = $g_asset_options[0];
     <script>
       $(document).ready(function(){
         $('[data-toggle="tooltip"]').tooltip();
-      });
-    </script>
-    <script>
-      $("select").click(function() {
-      var open = $(this).data("isopen");
-      if(open) {
-        window.location.href = $(this).val()
-      }
-      //set isopen to opposite so next time when use clicked select box
-      //it wont trigger this event
-      $(this).data("isopen", !open);
       });
     </script>
 
