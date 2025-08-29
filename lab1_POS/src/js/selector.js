@@ -1,8 +1,9 @@
-$("select").click(function() {
-var open = $(this).data("isopen");
-if(open) {
-window.location.href = $(this).val()
-}
-//set isopen to opposite so next time when use clicked select box
-//it wont trigger this event
-$(this).data("isopen", !open);
+
+    document.getElementById("search_id").addEventListener("click", function() {
+      const select = document.getElementById("product_option");
+      const url = select.value;
+      if (url !== "pos1_page_new.php") {
+        window.location.href = url;
+      }
+    });
+

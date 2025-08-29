@@ -1,10 +1,25 @@
 <!DOCTYPE html>
+<!--
+this shit is temporary playground to do:
+  - copy paste shit
+  - test bootstrap shit
+
+update this shit once we get the homepage working
+- currently working on the shittiest shit on POS of everyting
+
+-->
+<?php
+$next_loc = "botsrap.php";
+header("Location: src/phpHTML/" . "$next_loc");
+exit();
+?>
 <html lang="en">
   <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
+
 
     <!-- Latest compiled and minified CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
@@ -20,7 +35,7 @@
   <body>
 
 
-  <div class="justify-content-center text-center">
+  <div class="justify-content-center text-center w-100">
       <h1 class="shope-name" style="font-family: Algerian;">Se-Ri`s Point of Sale</h1>  <!--title of the webpage-->
   </div>
 

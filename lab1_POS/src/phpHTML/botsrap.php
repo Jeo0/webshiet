@@ -33,9 +33,11 @@ $g_current_asset = $g_asset_options[0];
       <link rel="stylesheet" href="<?php echo "$g_root_location" . "src/css/styles.css"; ?>" >
       
     <!-- webpage selector -->
-    <!--
-    <script src="<?php //echo "$g_root_location" . "src/js/selector.js"; ?>"></script>
-    -->
+    <script src="
+<?php 
+      // echo "$g_root_location" . "src/js/selector.js";
+      echo "lab1_POS/src/js/selector.js"; 
+?>"></script>
 
   </head>
 
@@ -45,10 +47,10 @@ $g_current_asset = $g_asset_options[0];
       
       <!-- image selector -->
       <div style="margin-top:30px; margin-bottom:10px">
-        <button id="search" type="submit" name="search_btn" class="btn btn-danger" style="padding:5px; margin-bottom:5px; margin-left:40px; width:130px">SEARCH</button>
+        <button id="search_id" type="submit" name="search_btn" class="btn btn-danger" style="padding:5px; margin-bottom:5px; margin-left:40px; width:130px">SEARCH</button>
         <select id="product_option" name="product_option" style="width:250px; height:36px; padding:5px">
           <option value="pos1_page_new.php">---------------select product</option>
-          <option value="../../src/phpHTML/cpus.php">CPUS</option>
+          <option value="<?php echo "$g_root_location" . "/src/phpHTML/" . "cpus.php"; ?>">CPUS</option>
           <option value="pos2_page_new.php">So Bango Perfumes</option>
         </select>
       </div>
@@ -89,21 +91,32 @@ $g_current_asset = $g_asset_options[0];
             // for overriding the bootstrap with css
 
             // card proper
+            echo "<div class=\"img-wrapper\">";         // image wrapper
             echo "<img src=\"$directory$e_cards_name\" "
               . "class=\"card-img-top cardIMAGE "
-              . "img-fluid mx-0 \" "
+              . "img-fluid mx-0 "
+              . "object-fit-fill " 
               . "data-toggle=\"tooltip\" "
               . "data-placement=\"bottom\" "
               . "alt=\"$e_cards_name\" >";
+            echo "</div>";                               // image wrapper
             
             // contents of the pic (below)
-            echo "<div class=\"card-body\">";
+            echo "<div class=\"card-body\" gx-1>"; // card body
 
-              echo "<h5 class=\"card-title\">" . $alt . "</h5>";                
-              echo "<p class=\"card-text\">" . "P" . rand(10,10000) . "</p>";   // random for now, connect to database later
-              // echo "<a href=\"#\" class=\"btn btn-primary\">" . "Werelse" . "</a>";     // optional button
-            
-            echo "</div>";
+              echo "<div class=\"row\">"; // row gutter
+                
+                echo "<div class=\"col\ p-3\">";
+                  echo "<h6 class=\"card-title\">" . $alt . "</h6>";                
+                echo "</div>";
+
+                echo "<div class=\"col\ p-3\">";
+                  echo "<p class=\"card-text justify-content-end\">" . "P" . rand(10,10000) . "</p>";   // random for now, connect to database later
+                echo "</div>";
+                // echo "<a href=\"#\" class=\"btn btn-primary\">" . "Werelse" . "</a>";     // optional button
+
+              echo "</div>";    // row gutter
+            echo "</div>";      // card body
 
 
 
@@ -125,11 +138,12 @@ $g_current_asset = $g_asset_options[0];
 
 
     <script>
-      $(document).ready(function(){
-        $('[data-toggle="tooltip"]').tooltip();
-      });
+      document.readyfunction(){
+        '[data-toggle="tooltip"]'.tooltip();
+      };
     </script>
     <script>
+/*
       $("select").click(function() {
       var open = $(this).data("isopen");
       if(open) {
@@ -139,6 +153,9 @@ $g_current_asset = $g_asset_options[0];
       //it wont trigger this event
       $(this).data("isopen", !open);
       });
+ */
+
+    // document.getElementById("product_option").addEventListener("change", function() {
     </script>
 
   </body>
