@@ -9,7 +9,7 @@ update this shit once we get the homepage working
 
 -->
 <?php
-$next_loc = "botsrap.php";
+$next_loc = "characters.php";
 header("Location: src/phpHTML/" . "$next_loc");
 exit();
 ?>

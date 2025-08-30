@@ -1,8 +1,3 @@
-<?php 
-$g_root_location = "../../";
-$g_asset_options = ["CHARACTERS", "CPUS", "GAMES", "GPUS", "MOTHERBOARDS", "beverages", "breakfast"];
-$g_current_asset = $g_asset_options[0];
-?>
 
 <!DOCTYPE html>
 <html lang="en"> <head> <title>Sample 101</title>
@@ -36,8 +31,7 @@ $g_current_asset = $g_asset_options[0];
     <!-- webpage selector -->
     <script src="
         <?php 
-          echo $g_root_location. "src/js/selector.js";
-          // echo "lab1_POS/src/js/selector.js"; 
+          echo "$g_root_location" . "src/js/selector.js";
         ?>">
     </script>
 
@@ -52,8 +46,18 @@ $g_current_asset = $g_asset_options[0];
         <button id="search_id" type="submit" name="search_btn" class="btn btn-danger">SEARCH</button>
         <select id="product_option" name="product_option">
           <option value="pos1_page_new.php">---------------select product</option>
-          <option value="<?php echo "$g_root_location" . "src/phpHTML/" . "cpus.php"; ?>">CPUS</option>
-          <option value="pos2_page_new.php">So Bango Perfumes</option>
+
+            <?php
+                // i hate hardcoding
+                // create option for each folders included in the array 
+                foreach($g_asset_options as $local_option){
+                    echo "<option value=\"$g_root_location" . "src/phpHTML/" . strtolower($local_option) . ".php\">" . "$local_option" . "</option>";
+                }
+            ?>
+            <!--
+          <option value="<?php // echo "$g_root_location" . "src/phpHTML/" . "cpus.php"; ?>">CPUS</option>
+          <option value="<?php // echo "$g_root_location" . "src/phpHTML/" . ".php"; ?>">CHARACTERS</option>
+            -->
         </select>
       </div>
 
@@ -81,6 +85,8 @@ $g_current_asset = $g_asset_options[0];
     $intended_columns = 4;
     $ii_current_arr = 0;
 
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    // THE row of cards with images
     foreach($filesAndDirs as $e_cards_name){
       $alt = pathinfo($e_cards_name, PATHINFO_FILENAME);
 
@@ -135,6 +141,108 @@ $g_current_asset = $g_asset_options[0];
 
 
 
+    </div>
+
+  <!-- Order Details -->
+  <div style="width:40%;">
+    <h5 class="text-left" style="font-weight:bold;">Order Details:</h5>
+    <div style="width:100%; text-align:left;">
+            
+        <div class="input_box">
+          <span>Item Name:</span>
+          <input type="text" name="item_name" id="item_name" value="" disabled>
+        </div>
+
+        <div class="input_box">
+          <span>Price:</span>
+          <input type="text" name="price" id="price" value="" disabled>
+        </div>
+
+        <div class="input_box">
+          <span>Quantity:</span>
+          <input type="text" name="quantity" id="quantity" value="">
+        </div>
+
+        <div class="input_box">
+          <span>Discount Amount:</span>
+          <input type="text" name="discount_amount" id="discount_amount" value="" disabled>
+        </div>
+
+         <div class="input_box">
+          <span>Discounted Amount:</span>
+          <input type="text" name="discounted_amount" id="discounted_amount" value="" disabled>
+        </div>
+
+         <div class="input_box">
+          <span>Total Quantity:</span>
+          <input type="text" name="total_quantity" id="total_quantity" value="" disabled>
+        </div>
+
+        <div class="input_box">
+          <span>Total Discount Given:</span>
+          <input type="text" name="total_disc_given" id="total_disc_given" value="" disabled>
+        </div>
+
+        <div class="input_box">
+          <span>Total Discounted Amount:</span>
+          <input type="text" name="total_disc_amount" id="total_disc_amount" value="" disabled>
+        </div>
+
+       <div class="input_box">
+          <span>Cash Given:</span>
+          <input type="text" name="cash_given" id="cash_given" value="">
+        </div>
+
+        <div class="input_box">
+          <span>Change:</span>
+          <input type="text" name="change" id="change" value="" disabled>
+        </div>
+
+    </div>
+  </div>
+
+    <!-- Order Discount Options & Calculator -->
+    <div style="width:55%;">
+      <h5 class="text-left" style="font-weight:bold;">Order Discount Options:</h5>
+      <div style="margin-bottom:15px;">
+        <input type="radio" name="discount" id="senior" checked>
+        <label for="senior">Senior Citizen</label>
+        <input type="radio" name="discount" id="disc_card">
+        <label for="disc_card">With Disc. Card</label>
+        <input type="radio" name="discount" id="employee">
+        <label for="employee">Employee Disc.</label>
+        <input type="radio" name="discount" id="none">
+        <label for="none">No Discount</label>
+      </div>
+
+      <!-- Top Buttons -->
+      <div style="display:flex; gap:10px; margin-bottom:10px;">
+        <button class="btn btn-primary" style="width:190px;">CALCULATE CHANGE</button>
+        <button class="btn btn-danger" style="width:90px;">NEW</button>
+        <button class="btn btn-warning" style="width:90px;">SAVE</button>
+        <button class="btn btn-secondary" style="width:95px;">UPDATE</button>
+      </div>
+
+      <!-- Calculator-->
+      <div style="display:grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap:5px; width:100%; max-width:500px;">
+        
+        <button class="btn btn-primary" style="grid-row:1/6; grid-column:1/2; height:100%;">ENTER</button>
+        <button class="btn btn-dark">/</button>
+        <button class="btn btn-dark">*</button>
+        <button class="btn btn-dark">-</button>
+        <button class="btn btn-dark">+</button>
+        <button class="btn btn-dark">6</button>
+        <button class="btn btn-dark">7</button>
+        <button class="btn btn-dark">8</button>
+        <button class="btn btn-dark">9</button>
+        <button class="btn btn-dark">2</button>
+        <button class="btn btn-dark">3</button>
+        <button class="btn btn-dark">4</button>
+        <button class="btn btn-dark">5</button>
+        <button class="btn btn-dark">0</button>
+        <button class="btn btn-dark">.</button>
+        <button class="btn btn-dark">1</button>
+      </div>
     </div>
 
 
