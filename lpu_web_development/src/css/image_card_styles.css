@@ -12,7 +12,7 @@
 
 .img-wrapper:hover {
     transform: scale(1.01);
-    box-shadow: 0 0 1px rgba(0, 0, 0, 0.3);
+    box-shadow: 0 0 3px rgba(0, 0, 0, 0.5);
     border-radius: 2px; 
     cursor: pointer;
     max-height: none;

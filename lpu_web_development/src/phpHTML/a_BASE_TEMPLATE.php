@@ -21,7 +21,8 @@
     <!--<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>-->
     
     <!-- newer version bootstrap 5.0 -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"> <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"> 
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 
     <!-- custom styles (relative path) -->
     <link rel="stylesheet" href="<?php echo "$g_root_location" . "src/css/image_card_styles.css"; ?>" >
@@ -50,8 +51,8 @@
             <?php
                 // i hate hardcoding
                 // create option for each folders included in the array 
-                foreach($g_asset_options as $local_option){
-                    echo "<option value=\"$g_root_location" . "src/phpHTML/" . strtolower($local_option) . ".php\">" . "$local_option" . "</option>";
+                foreach($g_asset_options as $e_local_option){
+                    echo "<option value=\"$g_root_location" . "src/phpHTML/" . strtolower($e_local_option) . ".php\">" . "$e_local_option" . "</option>";
                 }
             ?>
             <!--
@@ -91,11 +92,11 @@
       $alt = pathinfo($e_cards_name, PATHINFO_FILENAME);
 
       // only create a new row if abot 4 columns
-      if($ii_current_arr % $intended_columns == 0) 
+      if($ii_current_arr % $intended_columns == 0)    // row
         echo "<div class=\"row " . "mb-5 \">";
 
-        echo "<div class=\"col\">";
-          echo "<div class=\"card character_card\">";
+        echo "<div class=\"col\">";                   // col
+          echo "<div class=\"card character_card\">"; // card
             // for overriding the bootstrap with css
 
             // card proper
@@ -119,7 +120,7 @@
                 echo "</div>";
 
                 echo "<div class=\"col\ p-3\">";
-                  echo "<p class=\"card-text justify-content-end\">" . "P" . rand(10,10000) . "</p>";   // random for now, connect to database later
+                  echo "<p class=\"card-text justify-content-end\">P" . rand(10,10000) . "</p>";   // random for now, connect to database later
                 echo "</div>";
                 // echo "<a href=\"#\" class=\"btn btn-primary\">" . "Werelse" . "</a>";     // optional button
 
@@ -132,7 +133,7 @@
         echo "</div>";      // col
         $ii_current_arr++;
 
-      if($ii_current_arr % $intended_columns == 0) echo "</div>";
+      if($ii_current_arr % $intended_columns == 0) echo "</div>";   // row
     }
       
 
