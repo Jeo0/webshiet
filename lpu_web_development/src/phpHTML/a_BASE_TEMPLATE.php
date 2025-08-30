@@ -143,90 +143,104 @@
 
     </div>
 
-  <!-- Order Details -->
-  <div style="width:40%;">
-    <h5 class="text-left" style="font-weight:bold;">Order Details:</h5>
-    <div style="width:100%; text-align:left;">
-            
+<div class="container pt-0 pb-5">
+
+  <div class="row g-4">
+
+    <!-- Order Details Column -->
+    <div class="col-md-5">
+      <h5 class="fw-bold mb-3">Order Details:</h5>
+
+      <div class="d-flex flex-column gap-2">
+
         <div class="input_box">
           <span>Item Name:</span>
-          <input type="text" name="item_name" id="item_name" value="" disabled>
+          <input type="text" name="item_name" id="item_name" class="form-control form-control-sm" disabled>
         </div>
 
         <div class="input_box">
           <span>Price:</span>
-          <input type="text" name="price" id="price" value="" disabled>
+          <input type="text" name="price" id="price" class="form-control form-control-sm" disabled>
         </div>
 
         <div class="input_box">
           <span>Quantity:</span>
-          <input type="text" name="quantity" id="quantity" value="">
+          <input type="text" name="quantity" id="quantity" class="form-control form-control-sm">
         </div>
 
         <div class="input_box">
           <span>Discount Amount:</span>
-          <input type="text" name="discount_amount" id="discount_amount" value="" disabled>
+          <input type="text" name="discount_amount" id="discount_amount" class="form-control form-control-sm" disabled>
         </div>
 
-         <div class="input_box">
+        <div class="input_box">
           <span>Discounted Amount:</span>
-          <input type="text" name="discounted_amount" id="discounted_amount" value="" disabled>
+          <input type="text" name="discounted_amount" id="discounted_amount" class="form-control form-control-sm" disabled>
         </div>
 
-         <div class="input_box">
+        <div class="input_box">
           <span>Total Quantity:</span>
-          <input type="text" name="total_quantity" id="total_quantity" value="" disabled>
+          <input type="text" name="total_quantity" id="total_quantity" class="form-control form-control-sm" disabled>
         </div>
 
         <div class="input_box">
           <span>Total Discount Given:</span>
-          <input type="text" name="total_disc_given" id="total_disc_given" value="" disabled>
+          <input type="text" name="total_disc_given" id="total_disc_given" class="form-control form-control-sm" disabled>
         </div>
 
         <div class="input_box">
           <span>Total Discounted Amount:</span>
-          <input type="text" name="total_disc_amount" id="total_disc_amount" value="" disabled>
+          <input type="text" name="total_disc_amount" id="total_disc_amount" class="form-control form-control-sm" disabled>
         </div>
 
-       <div class="input_box">
+        <div class="input_box">
           <span>Cash Given:</span>
-          <input type="text" name="cash_given" id="cash_given" value="">
+          <input type="text" name="cash_given" id="cash_given" class="form-control form-control-sm">
         </div>
 
         <div class="input_box">
           <span>Change:</span>
-          <input type="text" name="change" id="change" value="" disabled>
+          <input type="text" name="change" id="change" class="form-control form-control-sm" disabled>
         </div>
 
+      </div>
     </div>
-  </div>
 
-    <!-- Order Discount Options & Calculator -->
-    <div style="width:55%;">
-      <h5 class="text-left" style="font-weight:bold;">Order Discount Options:</h5>
-      <div style="margin-bottom:15px;">
-        <input type="radio" name="discount" id="senior" checked>
-        <label for="senior">Senior Citizen</label>
-        <input type="radio" name="discount" id="disc_card">
-        <label for="disc_card">With Disc. Card</label>
-        <input type="radio" name="discount" id="employee">
-        <label for="employee">Employee Disc.</label>
-        <input type="radio" name="discount" id="none">
-        <label for="none">No Discount</label>
+    <!-- Discount Options + Calculator Column -->
+    <div class="col-md-7">
+      <h5 class="fw-bold mb-3">Order Discount Options:</h5>
+
+      <!-- radio Buttons -->
+      <div class="mb-3 d-flex gap-3 flex-wrap">
+        <div class="form-check">
+          <input class="form-check-input" type="radio" name="discount" id="senior" checked>
+          <label class="form-check-label" for="senior">Senior Citizen</label>
+        </div>
+        <div class="form-check">
+          <input class="form-check-input" type="radio" name="discount" id="disc_card">
+          <label class="form-check-label" for="disc_card">With Disc. Card</label>
+        </div>
+        <div class="form-check">
+          <input class="form-check-input" type="radio" name="discount" id="employee">
+          <label class="form-check-label" for="employee">Employee Disc.</label>
+        </div>
+        <div class="form-check">
+          <input class="form-check-input" type="radio" name="discount" id="none">
+          <label class="form-check-label" for="none">No Discount</label>
+        </div>
       </div>
 
-      <!-- Top Buttons -->
-      <div style="display:flex; gap:10px; margin-bottom:10px;">
-        <button class="btn btn-primary" style="width:190px;">CALCULATE CHANGE</button>
-        <button class="btn btn-danger" style="width:90px;">NEW</button>
-        <button class="btn btn-warning" style="width:90px;">SAVE</button>
-        <button class="btn btn-secondary" style="width:95px;">UPDATE</button>
+      <!-- top Buttons -->
+      <div class="mb-3 d-flex gap-2 flex-wrap">
+        <button class="btn btn-primary flex-fill">CALCULATE CHANGE</button>
+        <button class="btn btn-danger flex-fill">NEW</button>
+        <button class="btn btn-warning flex-fill">SAVE</button>
+        <button class="btn btn-secondary flex-fill">UPDATE</button>
       </div>
 
-      <!-- Calculator-->
-      <div style="display:grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap:5px; width:100%; max-width:500px;">
-        
-        <button class="btn btn-primary" style="grid-row:1/6; grid-column:1/2; height:100%;">ENTER</button>
+      <!-- calculator -->
+      <div class="d-grid gap-2" style="grid-template-columns: 2fr repeat(3, 1fr); max-width: 500px;">
+        <button class="btn btn-primary" style="grid-row: 1 / 6;">ENTER</button>
         <button class="btn btn-dark">/</button>
         <button class="btn btn-dark">*</button>
         <button class="btn btn-dark">-</button>
@@ -244,6 +258,10 @@
         <button class="btn btn-dark">1</button>
       </div>
     </div>
+
+  </div>
+
+</div>
 
 
 
