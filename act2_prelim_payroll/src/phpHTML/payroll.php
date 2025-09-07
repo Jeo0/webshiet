@@ -171,6 +171,16 @@ foreach($payrollindexes as $i_title){
 
 echo '</div>'; // end of column
 
+
+
+
+
+
+
+
+
+
+
 echo '<div class="col-auto col-md-5">'; // another column
 
 ///////////////////////////////////////////////////
