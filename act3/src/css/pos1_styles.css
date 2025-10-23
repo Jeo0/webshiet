@@ -1,0 +1,52 @@
+img{width:auto; height:100%;}
+.pic_group {text-align:center;}
+.pic_group .pic_option div {
+  width:180px;
+  height:190px;
+  border:10px solid white;
+  overflow:hidden;
+  box-shadow:0 0 5px;
+  margin-bottom:5px;}
+.pic_option {
+  display:inline-block;
+  margin:5px;
+  margin-bottom:5px;
+}
+.pic_group .pic_option input[type=checkbox] {
+  transform:scale(1.5);
+  margin-right:5px;
+}
+.option_group input[type=checkbox] {
+  width:35%;
+  text-align:left;
+  padding-left:50px;
+}
+.group_text input[type=text] {
+  text-align:left;
+  padding:5px;
+  margin:5px;
+}
+.bundle_checkbox input[type=checkbox] {
+  transform:scale(1.5);
+  margin-right:5px;
+  padding-left:50px;
+}
+.bundle_option input[type=radiobutton] {
+  transform:scale(1.5);
+  margin-right:5px;
+  padding-left:50px;
+}
+.input_box {
+  width:100%;
+  margin-bottom:10px;
+}
+.input_box span {
+  width:160px;
+  float:left;
+  margin-left:50px;
+}
+.btn_process {
+  width:180px;
+  height:58px;
+  margin-bottom:5px;
+}
