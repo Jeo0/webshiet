@@ -16,13 +16,12 @@
     </head>
 
     <!---------------- VARIABLES -------------------->
-    <?php include "./payrollIndexes.php"; ?>
+    <?php include "./PayrollIndexes.php"; ?>
 
 
     <!---------------- RENDER PROPER -------------------->
     <body style="background-color: #f4f4f4;" class="container-flex m-2">
-
-        <!-- mismong form -->
+<!-- mismong form -->
         <div class="container-flex m-5 bg-white mismongForm" style="box-shadow: 0 0 3px rgba(0, 0, 0, 0.5);">
 
             <!-- start of -->

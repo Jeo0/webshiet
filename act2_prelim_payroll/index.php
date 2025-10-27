@@ -9,7 +9,7 @@ update this once we get the homepage working
 
 -->
 <?php
-$next_loc = "payroll.php";
+$next_loc = "Payroll.php";
 header("Location: src/phpHTML/" . "$next_loc");
 exit();
 ?>
