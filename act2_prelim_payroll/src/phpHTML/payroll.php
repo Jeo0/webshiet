@@ -1,3 +1,4 @@
+<?php include "./GLOBALS.php"?>
 <!DOCTYPE html>
 <html lang="en">
     <head>
@@ -10,98 +11,20 @@
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 
         <!-- custom styles (relative path) -->
-        <link rel="stylesheet" href="<?php echo "$g_root_location" . "src/css/image_card_styles.css"; ?>">
+        <link rel="stylesheet" href="<?php echo '$g_root_location' . 'src/css/image_card_styles.css'; ?>">
 
-        <!-- webpage selector -->
-        <script src="<?php echo "$g_root_location" . "src/js/selector.js"; ?>"></script>
     </head>
 
-    <?php
-    // 0 EMPLOYEE 
-    // 1 ARRAY {
-    //    [1][0][0]   employeenumber
-    //    [1][0][1]   input
-    //    [1][1][0]   search employee
-    //    [1][1][1]   button
-    //    ...
-    // 2 BASIC INCOME 
-    // 3 ARRAY {
-    //    [3][0][0]   rate hout
-    //    [3][0][1]   input
-    //    [3][1][0]   search employee
-    //    [3][1][1]   button 
-    //    [3][1][2]   button text
-    //    ...
-    $payrollindexes = array(
-        "EMPLOYEE BASIC INFO",
-        [
-            ["cat bleh", "image"],
-            ["Employee Number", "input"],
-            ["Search Employee", "button", "Search"],
-            ["Department", "input disabled"]
-        ],
-        "BASIC INCOME",
-        [
-            ["Rate / Hour", "input"],
-            ["No. of Hours / Cut Off", "input"],
-            ["Income / Cut Off", "input disabled"]
-        ],
-        "HONORARIUM INCOME",
-        [
-            ["Rate / Hour", "input"],
-            ["No. of Hours / Cut Off", "input"],
-            ["Income / Cut Off", "input disabled"]
-        ],
-        "OTHER INCOME",
-        [
-            ["Rate / Hour", "input"],
-            ["No. of Hours / Cut Off", "input"],
-            ["Income / Cut Off", "input disabled"]
-        ],
-        "SUMMARY INCOME",
-        [
-            ["GROSS INCOME", "input"],
-            ["NET INCOME", "input disabled"]
-        ]
-    );
+    <!---------------- VARIABLES -------------------->
+    <?php include "./payrollIndexes.php"; ?>
 
-    $second_form = array(
-        "SUMMARY INCOME",
-        [
-            ["Firstname", "input disabled"],
-            ["Middle Name", "input disabled"],
-            ["Surname", "input disabled"],
-            ["Civil Status", "input disabled"],
-            ["Qualified Dependents Status", "input"],
-            ["Paydate", "input"],
-            ["Employee Status", "input disabled"],
-            ["Designation", "input disabled"]
-        ],
-        "REGULAR DEDUCTIONS",
-        [
-            ["SSS Contribution", "input disabled"],
-            ["PhilHealth Contribution", "input disabled"],
-            ["Pagibig Contribution", "input disabled"],
-            ["Income Tax Contribution", "input disabled"]
-        ],
-        "OTHER DEDUCTIONS",
-        [
-            ["SSS Loan", "input"],
-            ["Pagibig Loan", "input"],
-            ["Faculty Savings Deposit", "input"],
-            ["Faculty Savings Loan", "input"],
-            ["Salary Loan", "input"],
-            ["Other Loans", "input"]
-        ],
-        "DEDUCTION SUMMARY"
-    );
 
-    // var_dump($payrollindexes);
-    ?>
-
+    <!---------------- RENDER PROPER -------------------->
     <body style="background-color: #f4f4f4;" class="container-flex m-2">
+
         <!-- mismong form -->
         <div class="container-flex m-5 bg-white mismongForm" style="box-shadow: 0 0 3px rgba(0, 0, 0, 0.5);">
+
             <!-- start of -->
             <div class="row gx-0 justify-content-center">
                 <?php
@@ -159,7 +82,10 @@
 
                 echo '</div>'; // end of column
 
-                echo '<div class="col-auto col-md-5">'; // another column
+
+                ///////////////////////////////////////////////////
+                // another column
+                echo '<div class="col-auto col-md-5">'; 
 
                 ///////////////////////////////////////////////////
                 ///////////////////////////////////////////////////
@@ -226,7 +152,15 @@
                 }
                 ?>
                 </div>
-            </div>
-        </div>
+            </div>   <!-- start --> 
+
+
+        </div>  <!-- mismong form -->
+
+
+        <!-- webpage selector -->
+        <script src="<?php echo "$g_root_location" . "src/js/selector.js"; ?>"></script>
+        <script src="<?php echo "$g_root_location" . "src/js/calculation.js"; ?>"></script>
+
     </body>
 </html>
