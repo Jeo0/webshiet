@@ -28,10 +28,11 @@
     <link rel="stylesheet" href="<?php echo $g_root_location . 'src/css/image_card_styles.css'; ?>">
 </head>
 
-<body style="background-color: #f4f4f4;" class="container-flex m-2">
+<body style="background-color: #f4f4f4;" class="container-flex m-5">
 
-<div class="container-flex m-5 bg-white mismongForm shadow-sm p-3">
-    <div class="row gx-0 justify-content-center">
+
+<div class="bg-white mismongForm shadow-sm">
+    <div class="row gx-2 gy-2 justify-content-center align-items-start">
         <div class="col-auto col-md-5">
             <?php renderFormColumn($payrollindexes); ?>
         </div>
