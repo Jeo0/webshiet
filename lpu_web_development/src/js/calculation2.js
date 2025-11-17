@@ -1,7 +1,8 @@
 document.addEventListener("DOMContentLoaded", function main() {
 
-    //////////////////////////////////////////////////////////////////
-    // cards
+    // =======================================
+    // CARDS
+    // =======================================
     const cards = document.querySelectorAll(".character_card");
     // input field
     const item_nameInput = document.getElementById("item_name");
@@ -25,8 +26,9 @@ document.addEventListener("DOMContentLoaded", function main() {
     const changeInput = document.getElementById("change");
 
 
-    //////////////////////////////////////////////////////////////////
-    // events
+    // =======================================
+    // EVENTS
+    // =======================================
     function CardClick(){
         // in   card title,  card text,   
         item_nameInput.value = this.querySelector(".card_title").textContent;
@@ -84,8 +86,9 @@ document.addEventListener("DOMContentLoaded", function main() {
     }
 
 
-
+    // =======================================
     // CLICK EVENTS
+    // =======================================
     document.getElementById("calculate_change_btn").addEventListener("click", CalculateChangeEventButton);
     document.getElementById("new_btn").addEventListener("click", NewEventButton);
     quantityInput.addEventListener("input", CalculatePrice);

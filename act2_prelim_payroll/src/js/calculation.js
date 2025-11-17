@@ -1,6 +1,6 @@
 document.addEventListener("DOMContentLoaded", function main() {
 
-    //////////////////////////////////////////////////////////////////
+    // ===============================================================
     // cards
     // const cards = document.querySelectorAll(".character_card");
     // input field
@@ -10,12 +10,10 @@ document.addEventListener("DOMContentLoaded", function main() {
     document.querySelectorAll("input[id]").forEach(input => {
         inputs[input.id] = input;
     });
-    // how to use:
-    //  inputs["employee_basic_info__employee_number"].value = "12345";
 
-    /* ==============================================
-     * ID OF INPUT FIELDS 
-     * ============================================== */
+    // ===============================================================
+    // ID OF INPUT FIELDS 
+    // ===============================================================
     const inputIDs = [
         // left column
         "employee_basic_info__employee_number", 
@@ -68,11 +66,11 @@ document.addEventListener("DOMContentLoaded", function main() {
 
 
 
-    //////////////////////////////////////////////////////////////////
-    //////////////////////////////////////////////////////////////////
+    // ===============================================================
+    // ===============================================================
     // EVENTS
-    //////////////////////////////////////////////////////////////////
-    //////////////////////////////////////////////////////////////////
+    // ===============================================================
+    // ===============================================================
     function CalculateChangeEventButton(){
         // in   priceInput,            disc_amountInput,        discED_amountInput,        cash_givenInput
         // out  total_quantityInput,   total_disc_givenInput,   total_discED_amountInput,  changeInput
@@ -256,7 +254,7 @@ document.addEventListener("DOMContentLoaded", function main() {
             { start: 33333,     end: 66666,     base: 2500,                     rate: 0.25 },
             { start: 66667,     end: 166666,    base: 10833.33,                 rate: 0.30 },
             { start: 166667,    end: 666666,    base: 40833.33,                 rate: 0.32 },
-            { start: 666667,    end: 9999999999999999999999,  base: 200833.33,  rate: 0.35 }
+            { start: 666667,    end: Number.MAX_SAFE_INTEGER,  base: 200833.33,  rate: 0.35 }
         ];
 
 

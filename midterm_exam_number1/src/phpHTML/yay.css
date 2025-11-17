@@ -1,0 +1,9 @@
+.card {
+    border: darkslategray;
+    border-radius: 10px;
+    border-width: 10px;
+    background-color: aqua;
+    padding-bottom: 4px;
+    stroke-width: 10px;
+    stroke: black;
+}
