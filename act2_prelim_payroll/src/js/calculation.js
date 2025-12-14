@@ -310,6 +310,70 @@ document.addEventListener("DOMContentLoaded", function main() {
         inputs["summary_income__net_income"].value = subtotal;
     }
 
+    // SAVE BUTTON
+    function SaveEventButton() {
+        // we gather data manually to match the PHP expectations
+        const formData = new FormData();
+
+        // helper to safely get value or 0
+        const val = (id) => inputs[id] ? inputs[id].value : 0;
+
+        // basic info
+        formData.append('employee_number', val("employee_basic_info__employee_number"));
+        formData.append('paydate', val("summary_income__paydate"));
+
+        // basic income
+        formData.append('basic_rate_hour', val("basic_income__rate_hour"));
+        formData.append('basic_num_hours_cut_off', val("basic_income__no_of_hours_cut_off"));
+        formData.append('basic_income_cut_off', val("basic_income__income_cut_off"));
+
+        // honorarium
+        formData.append('honorarium_rate_hour', val("honorarium_income__rate_hour"));
+        formData.append('honorarium_num_hours_cut_off', val("honorarium_income__no_of_hours_cut_off"));
+        formData.append('honorarium_income_cut_off', val("honorarium_income__income_cut_off"));
+
+        // other income
+        formData.append('other_rate_hour', val("other_income__rate_hour"));
+        formData.append('other_num_hours_cut_off', val("other_income__no_of_hours_cut_off"));
+        formData.append('other_income_cut_off', val("other_income__income_cut_off"));
+
+        // summary income
+        formData.append('gross_income', val("summary_income__gross_income"));
+        formData.append('net_income', val("summary_income__net_income"));
+
+        // regular deductions
+        formData.append('sss_contribution', val("regular_deductions__sss_contribution"));
+        formData.append('philhealth_contribution', val("regular_deductions__philhealth_contribution"));
+        formData.append('pagibig_contribution', val("regular_deductions__pagibig_contribution"));
+        formData.append('income_tax_contribution', val("regular_deductions__income_tax_contribution"));
+
+        // other deductions
+        formData.append('sss_loan', val("other_deductions__sss_loan"));
+        formData.append('pagibig_loan', val("other_deductions__pagibig_loan"));
+        formData.append('faculty_savings_deposit', val("other_deductions__faculty_savings_deposit"));
+        formData.append('faculty_savings_loan', val("other_deductions__faculty_savings_loan"));
+        formData.append('salary_loan', val("other_deductions__salary_loan"));
+        formData.append('other_loans', val("other_deductions__other_loans"));
+        formData.append('total_deductions', val("deduction_summary__total_deductions"));
+
+        // send to backend
+        fetch('PayrollSave.php', {
+            method: 'POST',
+            body: formData
+        })
+        .then(response => response.json())
+        .then(data => {
+            if (data.status === 'success') {
+                alert("Meron na new data!");
+                // optional: Clear form or redirect
+                // NewEventButton(); 
+            } else {
+                alert("Error: " + data.message);
+            }
+        })
+        .catch(error => console.error('Error:', error));
+    }
+
 
 
 
@@ -317,5 +381,6 @@ document.addEventListener("DOMContentLoaded", function main() {
     document.getElementById("__gross_income").addEventListener("click", GrossIncomeEventButton);
     document.getElementById("__net_income").addEventListener("click", NetIncomeEventButton);
     document.getElementById("__new").addEventListener("click", NewEventButton);
+    document.getElementById("__save").addEventListener("click", SaveEventButton);
 });
 

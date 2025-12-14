@@ -25,51 +25,51 @@
             ["cat bleh", "image"],                  // ID=__cat_bleh  NAME=cat_bleh
             ["Employee Number", "input"],           // ID=__employee_number   NAME=employee_number
             //["Search Employee", "button", "Search"],// ID=__search_employee   NAME=search_employee
-            ["Department", "input disabled"]        // ID=__department        NAME=department
+            ["Department", "input"]        // ID=__department        NAME=department       // disabled
         ],
         "BASIC INCOME",
         [
             ["Rate / Hour", "input"],
             ["No. of Hours / Cut Off", "input"],
-            ["Income / Cut Off", "input disabled"]
+            ["Income / Cut Off", "input disabled"]      // disabled
         ],
         "HONORARIUM INCOME",
         [
             ["Rate / Hour", "input"],
             ["No. of Hours / Cut Off", "input"],
-            ["Income / Cut Off", "input disabled"]
+            ["Income / Cut Off", "input disabled"]      // disabled
         ],
         "OTHER INCOME",
         [
             ["Rate / Hour", "input"],                   // ID=other_income__rate_hour               NAME=other_income[rate_hour]
             ["No. of Hours / Cut Off", "input"],        // ID=other_income__no_of_hours_cut_off     NAME=other_income[no_of_hours_cut_off]
-            ["Income / Cut Off", "input disabled"]
+            ["Income / Cut Off", "input disabled"]      // disabled
         ],
         "SUMMARY INCOME",
         [
             ["GROSS INCOME", "input"],
-            ["NET INCOME", "input disabled"],
-            ["Firstname", "input disabled"],
-            ["Middle Name", "input disabled"],
-            ["Surname", "input disabled"],
+            ["NET INCOME", "input"],       // disabled
+            ["Firstname", "input"],        // disabled
+            ["Middle Name", "input"],      // disabled
+            ["Surname", "input"],          // disabled
         ]
     );
 
     $second_form = array(
         "SUMMARY INCOME",
         [
-            ["Civil Status", "input disabled"],
+            ["Civil Status", "input"],             // disabled
             ["Qualified Dependents Status", "input"],
             ["Paydate", "input"],
-            ["Employee Status", "input disabled"],
-            ["Designation", "input disabled"]
+            ["Employee Status", "input"],              // disabled
+            ["Designation", "input"]               // disabled
         ],
         "REGULAR DEDUCTIONS",
         [
-            ["SSS Contribution", "input disabled"],
-            ["PhilHealth Contribution", "input disabled"],
-            ["Pagibig Contribution", "input disabled"],
-            ["Income Tax Contribution", "input disabled"]
+            ["SSS Contribution", "input disabled"],             // disabled
+            ["PhilHealth Contribution", "input disabled"],              // disabled
+            ["Pagibig Contribution", "input disabled"],             // disabled
+            ["Income Tax Contribution", "input disabled"]               // disabled
         ],
         "OTHER DEDUCTIONS",
         [
@@ -82,7 +82,7 @@
         ],
         "DEDUCTION SUMMARY",
         [
-            ["Total Deductions", "input disabled"]
+            ["Total Deductions", "input disabled"]              // disabled
         ]
         // BUTTONS are 
         // 
