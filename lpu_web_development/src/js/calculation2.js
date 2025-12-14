@@ -19,12 +19,16 @@ document.addEventListener("DOMContentLoaded", function main() {
         none:       0
     };
     let discountOption = discountMap["none"];
+
     const total_quantityInput = document.getElementById("total_quantity");
     const total_disc_givenInput = document.getElementById("total_disc_given");
     const total_discED_amountInput = document.getElementById("total_discED_amount");
     const cash_givenInput = document.getElementById("cash_given");
     const changeInput = document.getElementById("change");
 
+    // buttons
+    const calculateChangeBtn = document.getElementById("calculate_change_btn");
+    const newBtn = document.getElementById("new_btn");
 
     // =======================================
     // EVENTS
@@ -36,8 +40,19 @@ document.addEventListener("DOMContentLoaded", function main() {
         const priceText = this.querySelector(".card_text").textContent;                     // need to clean it first eg.  P123 -> 123
         priceInput.value = parseFloat(priceText.replace(/[^\d.]/g, "")).toFixed(2) || 0;    // crazy regex chatgpt cleaning
 
+        if (quantityInput.value === "")
+            quantityInput.value = 1;
+
         // update price and discount amount
         CalculatePrice();
+    }
+
+    function DiscountOptionEventButton() {
+        const selected = document.querySelector('input[name="discount"]:checked');
+        if (selected) {
+            discountOption = discountMap[selected.id];  
+            CalculatePrice();  // update discount and subtotal
+        }
     }
 
     function CalculatePrice() {
@@ -61,7 +76,11 @@ document.addEventListener("DOMContentLoaded", function main() {
         total_quantityInput.value       = Number(total_quantityInput.value) + Number(quantityInput.value);
         total_disc_givenInput.value     = Number(total_disc_givenInput.value) + Number(disc_amountInput.value);
         total_discED_amountInput.value  = Number(total_discED_amountInput.value) + Number(discED_amountInput.value);
-        changeInput.value               = Number(cash_givenInput.value) - Number(discED_amountInput.value);
+
+        if(cash_givenInput.value > 0)
+            changeInput.value               = Number(cash_givenInput.value) - Number(discED_amountInput.value);
+        else
+            changeInput.value               = "0";
     }
 
     function NewEventButton(){
@@ -75,22 +94,20 @@ document.addEventListener("DOMContentLoaded", function main() {
         discED_amountInput.value = "";
         cash_givenInput.value = "";
         changeInput.value = "";
+
+        // reset radio buttons
+        const noneRadio = document.getElementById("none");
+        if(noneRadio) noneRadio.checked = true;
+        selectedDiscount = 'none';
     }
 
-    function DiscountOptionEventButton() {
-        const selected = document.querySelector('input[name="discount"]:checked');
-        if (selected) {
-            discountOption = discountMap[selected.id];  
-            CalculatePrice();  // update discount and subtotal
-        }
-    }
 
 
     // =======================================
     // CLICK EVENTS
     // =======================================
-    document.getElementById("calculate_change_btn").addEventListener("click", CalculateChangeEventButton);
-    document.getElementById("new_btn").addEventListener("click", NewEventButton);
+    calculateChangeBtn.addEventListener("click", CalculateChangeEventButton);
+    newBtn.addEventListener("click", NewEventButton);
     quantityInput.addEventListener("input", CalculatePrice);
 
     // card

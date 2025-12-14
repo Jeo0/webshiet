@@ -14,7 +14,7 @@ create table salestbl (
     quantity            int,
     total_discounted_amount     double,
     total_discount_given        double,
-    total_quantlty              int,
+    total_quantity              int,
     id                  int auto_increment primary key
 );
 

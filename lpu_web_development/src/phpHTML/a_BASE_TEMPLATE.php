@@ -234,5 +234,8 @@
         <!--<script src="<?php // echo "$g_root_location" . "src/js/" . "calculation.js"; ?>"></script>-->
         <script src="<?php echo "$g_root_location" . "src/js/" . "calculation2.js"; ?>"></script>
 
+        <!-- for database -->
+        <script src="<?php echo "$g_root_location" . "src/js/" . "seri_pos_save.js"; ?>"></script>
     </body>
 </html>
+

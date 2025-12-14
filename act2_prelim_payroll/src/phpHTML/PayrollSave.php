@@ -6,7 +6,7 @@ header('Content-Type: application/json');
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $conn = OpenCon();
 
-    // 1. Collect Data from POST
+    // collect data from POST
     // we use the ?? operator to handle empty fields safely (turning them into 0 or empty strings)
     $employee_number = $_POST['employee_number'] ?? '';
     $pay_date = $_POST['paydate'] ?? '';
@@ -41,7 +41,6 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $other_loans = $_POST['other_loans'] ?? 0;
     $total_deduction = $_POST['total_deductions'] ?? 0;
 
-    // 2. Insert into incometbl 
     $sql1 = "INSERT INTO incometbl (
         employee_no, income_date, 
         basic_rate_hour, basic_num_hrs, basic_income, 
@@ -56,7 +55,6 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         '$gross_income', '$net_income'
     )";
 
-    // 3. Insert into deductiontbl 
     $sql2 = "INSERT INTO deductiontbl (
         employee_no, deduction_date, 
         sss_contri, philHealth_contri, pagibig_contri, income_tax_contri, 
@@ -69,7 +67,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         '$salary_loan', '$other_loans', '$total_deduction'
     )";
 
-    // Execute queries
+    // executing queries
     if ($conn->query($sql1) === TRUE && $conn->query($sql2) === TRUE) {
         echo json_encode(['status' => 'success', 
                         'message' => 'jajaja bery nice']);
