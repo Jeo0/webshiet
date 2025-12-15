@@ -4,6 +4,10 @@ document.addEventListener("DOMContentLoaded", function () {
     const picBox = document.getElementById("pic-box");
     const picPathInput = document.getElementById("picpath");
 
+    // Debugging: Check if elements exist
+    if (!picPathInput) console.error("ERROR: Could not find element with id='picpath'. Check your HTML.");
+    if (!picBox) console.error("ERROR: Could not find element with id='pic-box'.");
+
     // ==========================================
     // 1. Image Upload & Preview
     // ==========================================
@@ -20,22 +24,32 @@ document.addEventListener("DOMContentLoaded", function () {
                 method: 'POST',
                 body: formData
             })
-            .then(response => response.json())
-            .then(data => {
-                if (data.ok) {
-                    // Update preview box
-                    // Note: ROOT_LOCATION is defined in the PHP file script tag
-                    // We assume relative pathing works if running on localhost
-                    const imgSrc = "../../" + data.temp_path; 
-                    picBox.innerHTML = `<img src="${imgSrc}" style="width:100%; height:100%; object-fit:cover;">`;
-                    
-                    // Update hidden input
-                    picPathInput.value = data.temp_path;
-                } else {
-                    alert("Error uploading picture: " + (data.error || "Unknown error"));
+            .then(response => response.text()) // Get text first to debug PHP errors
+            .then(text => {
+                try {
+                    const data = JSON.parse(text); // Try parsing JSON
+                    if (data.ok) {
+                        // Success: Update UI
+                        const imgSrc = "../../" + data.temp_path; 
+                        if (picBox) {
+                            picBox.innerHTML = `<img src="${imgSrc}" style="width:100%; height:100%; object-fit:cover;">`;
+                        }
+                        
+                        // Update hidden input (Safety check added)
+                        if (picPathInput) {
+                            picPathInput.value = data.temp_path;
+                        } else {
+                            alert("Upload successful, but could not save path. Missing 'picpath' input.");
+                        }
+                    } else {
+                        alert("Server Error: " + (data.error || "Unknown error"));
+                    }
+                } catch (e) {
+                    console.error("PHP Error Response:", text); // See the actual PHP error in Console
+                    alert("Upload Failed. PHP returned an error (see Console).");
                 }
             })
-            .catch(error => console.error('Error:', error));
+            .catch(error => console.error('Network Error:', error));
         });
     }
 
@@ -49,24 +63,27 @@ document.addEventListener("DOMContentLoaded", function () {
             const form = document.getElementById("employeeForm");
             const formData = new FormData(form);
 
-            // We use FormData directly, but the PHP expects specific keys. 
-            // Since our HTML name attributes match the PHP keys, FormData works automatically.
-
             fetch('process/employee_info_save.php', {
                 method: 'POST',
                 body: formData
             })
-            .then(response => response.json())
-            .then(data => {
-                if (data.ok) {
-                    alert("Data successfully added!");
-                    window.location.reload(); // Refresh page to clear form
-                } else {
-                    alert("Error saving data: " + data.error);
+            .then(response => response.text())
+            .then(text => {
+                try {
+                    const data = JSON.parse(text);
+                    if (data.ok) {
+                        alert("Data successfully added!");
+                        window.location.reload(); 
+                    } else {
+                        alert("Error saving data: " + data.error);
+                    }
+                } catch (e) {
+                    console.error("PHP Save Error:", text);
+                    alert("Save Failed. PHP returned an error (see Console).");
                 }
             })
             .catch(error => {
-                console.error('Error:', error);
+                console.error('Network Error:', error);
                 alert("An error occurred connecting to the server.");
             });
         });

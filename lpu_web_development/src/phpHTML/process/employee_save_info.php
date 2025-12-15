@@ -1,12 +1,11 @@
 <?php
-// src/phpHTML/process/employee_info_save.php
 header('Content-Type: application/json');
 
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     include '../db_connection.php';
     $conn = OpenCon();
 
-    // 1. Get POST Data [cite: 157-185]
+    // get POST datas
     $employee_number = $_POST['employee_number'] ?? '';
     $fname = $_POST['fname'] ?? '';
     $mname = $_POST['mname'] ?? '';
@@ -33,7 +32,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $zip_code = $_POST['zip_code'] ?? '';
     $picpath = $_POST['picpath'] ?? '';
 
-    // 2. Move Image from Temp to Uploads [cite: 187-189]
+    // Move Image from Temp to Uploads 
     // Current picpath is "assets/temp/file.jpg"
     // We want to move it to "assets/uploads/file.jpg"
     $final_picpath = $picpath;
@@ -57,7 +56,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         }
     }
 
-    // 3. Insert into personal_infotbl [cite: 194-201]
+    // insert into personal_infotbl 
     $sql1 = "INSERT INTO personal_infotbl (
         employee_no, fname, mname, lname, suffix, birth_date, gender, nationality,
         civil_status, department, designation, qualified_dependent_status, employee_status,
@@ -74,7 +73,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
     if ($conn->query($sql1) === TRUE) {
         
-        // 4. Insert into user_accounttbl [cite: 209-210]
+        // 4. Insert into user_accounttbl 
         // Note: The lab only inserts employee_no. Assuming other fields are handled elsewhere or allow null.
         $sql2 = "INSERT INTO user_accounttbl (employee_no) VALUES ('$employee_number')";
         

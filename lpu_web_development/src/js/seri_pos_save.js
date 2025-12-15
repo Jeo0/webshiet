@@ -19,11 +19,10 @@ document.addEventListener("DOMContentLoaded", function () {
             const cashGiven = document.getElementById('cash_given').value;
             const change = document.getElementById('change').value;
 
-            // Get selected radio button text safely
+            // getting selected radio button text 
             let discountOption = "No Discount";
             const selectedRadio = document.querySelector('input[name="discount"]:checked');
             if (selectedRadio) {
-                // Find the label associated with the radio button
                 const label = document.querySelector(`label[for="${selectedRadio.id}"]`);
                 if (label) discountOption = label.textContent;
             }
